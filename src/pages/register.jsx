@@ -1,40 +1,40 @@
 import Image from "next/image";
-import background from "../images/OIP.png";
+import Background from "../images/OIP.png";
 
 export default function Register() {
     return (
-        <main className="flex flex-1 min-h-full flex-col justify-center ">
+        <main className="flex flex-col justify-center flex-1 min-h-full ">
             <Image
-                className="absolute h-full w-full -z-10"
-                src={background}
+                className="absolute w-full h-full -z-10"
+                src={Background}
                 alt="heheh"
                 fill
             />
 
-            <div className=" mt-36">
-                <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            <div className="mt-36">
+                <h2 className="text-2xl font-bold leading-9 tracking-tight text-center text-gray-900">
                     Register an Account
                 </h2>
             </div>
 
             <div className="flex flex-col justify-center mt-5 bg-slate-100 min-w-[400px] min-h-[500px] self-center rounded-lg bg-opacity-75">
                 <form className="flex flex-col self-center w-[250px] mt-5">
-                    <label className="block font-semibold text-lg">
+                    <label className="block text-lg font-semibold">
                         Email:
                     </label>
                     <input
-                        className="block mt-1 rounded text-lg pl-1"
+                        className="block pl-1 mt-1 text-lg rounded"
                         id="email"
                         type="email"
                         placeholder="email@domain.com"
                         required
                     />
 
-                    <label className="mt-4 block font-semibold text-lg">
+                    <label className="block mt-4 text-lg font-semibold">
                         Password:
                     </label>
                     <input
-                        className="block mt-1 rounded text-lg pl-1"
+                        className="block pl-1 mt-1 text-lg rounded"
                         id="password"
                         type="password"
                         placeholder="Password"
@@ -43,11 +43,11 @@ export default function Register() {
                         required
                     />
 
-                    <label className="mt-4 block font-semibold text-lg">
+                    <label className="block mt-4 text-lg font-semibold">
                         Confirm password:
                     </label>
                     <input
-                        className="block mt-1 rounded text-lg pl-1"
+                        className="block pl-1 mt-1 text-lg rounded"
                         id="confimrpassword"
                         type="password"
                         placeholder="Confirm Password"
@@ -64,8 +64,8 @@ export default function Register() {
                     </button>
                 </form>
 
-                <div className="flex flex-1 mt-5 border-t border-zinc-300 w-3/4 self-center">
-                    <div className="w-full text-center text-sm text-zinc-600 pt-1">
+                <div className="flex self-center flex-1 w-3/4 mt-5 border-t border-zinc-300">
+                    <div className="w-full pt-1 text-sm text-center text-zinc-600">
                         Or continue with:
                     </div>
                 </div>
