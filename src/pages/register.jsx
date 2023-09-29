@@ -1,18 +1,27 @@
 import Image from "next/image";
-import Background from "../assets/OIP.png";
+import Script from 'next/script'
+import Head from 'next/head';
+
+import background from "../assets/OIP.png";
+
 
 export default function Register() {
     return (
         <main className="flex flex-col flex-wrap content-center justify-center flex-1 min-h-full">
+            <Head>
+                <meta name="google-signin-client_id" content="626574468291-s9oqsl2rf7oldhf3p23outenek1urlib.apps.googleusercontent.com" />
+            </Head>
+            <Script src="https://apis.google.com/js/platform.js" />
+
             <Image
                 className="absolute w-full h-full -z-10"
-                src={Background}
+                src={background}
                 alt="heheh"
                 fill
             />
 
             <div className="flex flex-col justify-center mt-5 bg-slate-100 min-w-[400px] min-h-[500px] self-center rounded-lg bg-opacity-75">
-                <h2 className="p-12 text-6xl font-bold leading-9 tracking-tight text-center text-black">
+                <h2 className="p-12 text-5xl font-bold leading-9 tracking-tight text-center text-black">
                     Register an Account
                 </h2>
                 <form className="flex flex-col self-center w-[250px] mt-5">
@@ -61,10 +70,16 @@ export default function Register() {
                     </button>
                 </form>
 
-                <div className="flex self-center flex-1 w-3/4 mt-5 border-t border-zinc-300">
-                    <div className="w-full pt-1 text-sm text-center text-zinc-600">
+                <div className="flex self-center flex-col flex-1 w-3/4 mt-5 border-t min-h-[150px] border-zinc-300">
+                    <div className="block pt-1 text-sm text-center text-zinc-600">
                         Or continue with:
                     </div>
+
+                    <div className="g-signin2 self-center pt-5" 
+                    data-width="180" 
+                    data-height="35" 
+                    data-longtitle="true" 
+                    data-onsuccess="onSignIn"/>
                 </div>
             </div>
         </main>
