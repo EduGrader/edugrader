@@ -5,7 +5,7 @@ const ptsans = PT_Sans({ subsets: ["latin"], weight: ["400", "700"] });
 
 export default function App({ Component, pageProps }) {
     return (
-        <div className={`${ptsans.className}`}>
+        <div className={`${ptsans.className} h-full`}>
             <Component {...pageProps} />
         </div>
     );

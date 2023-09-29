@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Background from "../images/OIP.png";
+import Background from "../assets/OIP.png";
 
 export default function Register() {
     return (
-        <main className="flex flex-col justify-center flex-1 min-h-full ">
+        <main className="flex flex-col flex-wrap content-center justify-center flex-1 min-h-full">
             <Image
                 className="absolute w-full h-full -z-10"
                 src={Background}
@@ -11,13 +11,10 @@ export default function Register() {
                 fill
             />
 
-            <div className="mt-36">
-                <h2 className="text-2xl font-bold leading-9 tracking-tight text-center text-gray-900">
+            <div className="flex flex-col justify-center mt-5 bg-slate-100 min-w-[400px] min-h-[500px] self-center rounded-lg bg-opacity-75">
+                <h2 className="p-12 text-6xl font-bold leading-9 tracking-tight text-center text-black">
                     Register an Account
                 </h2>
-            </div>
-
-            <div className="flex flex-col justify-center mt-5 bg-slate-100 min-w-[400px] min-h-[500px] self-center rounded-lg bg-opacity-75">
                 <form className="flex flex-col self-center w-[250px] mt-5">
                     <label className="block text-lg font-semibold">
                         Email:
