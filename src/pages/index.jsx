@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 // Main color: bg-sky-400
-// Secondary color:
+// Secondary color:z
 
 export default function Home() {
     return (
