@@ -1,18 +1,35 @@
 import Image from "next/image";
-import Script from 'next/script'
-import Head from 'next/head';
-
 import background from "../assets/OIP.png";
 
+import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function Register() {
+    const { data, status } = useSession();
+
+    if (status === "loading") {
+        //checking status on server
+        //maybe make custom component for this
+        return <h1> loading... please wait</h1>;
+    }
+    if (status === "authenticated") {
+        //user is logged in
+        return (
+            //redirect to homepage or something
+            <div className="pt-16">
+                <h1>{data.user.name}</h1>
+                <Image
+                    src={data.user.image}
+                    alt={data.user.name + " photo"}
+                    width="50"
+                    height="50"
+                />
+                <button onClick={signOut}>sign out</button>
+            </div>
+        );
+    }
+    //user is not logged in
     return (
         <main className="flex flex-col flex-wrap content-center justify-center flex-1 min-h-full">
-            <Head>
-                <meta name="google-signin-client_id" content="626574468291-s9oqsl2rf7oldhf3p23outenek1urlib.apps.googleusercontent.com" />
-            </Head>
-            <Script src="https://apis.google.com/js/platform.js" />
-
             <Image
                 className="absolute w-full h-full -z-10"
                 src={background}
@@ -75,11 +92,19 @@ export default function Register() {
                         Or continue with:
                     </div>
 
-                    <div className="g-signin2 self-center pt-5" 
-                    data-width="180" 
-                    data-height="35" 
-                    data-longtitle="true" 
-                    data-onsuccess="onSignIn"/>
+                    <button
+                        className="mt-3 bg-white self-center px-4 py-2 border flex gap-2 border-slate-200 rounded-lg text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150"
+                        onClick={() => signIn("google")}
+                    >
+                        <Image
+                            width="25"
+                            height="25"
+                            src="https://www.svgrepo.com/show/475656/google-color.svg"
+                            alt="google logo"
+                        />
+                        <span>Sign In with Google</span>
+                        {/* this button sucks make it better */}
+                    </button>
                 </div>
             </div>
         </main>
