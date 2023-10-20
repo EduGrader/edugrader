@@ -9,8 +9,12 @@ export default function Home() {
             className={`flex min-h-screen flex-col items-center justify-between`}
         >
             <div className="bg-primary h-[550px] w-full flex justify-center content-center flex-wrap flex-col">
-                <h1 className="text-white text-7xl">EduGrader</h1>
-                <button className="text-white bg-green-500 rounded-sm">
+
+                <h1 className="text-white text-7xl">
+                    EduGrader - Replace background with image
+                </h1>
+                <button className="text-white rounded-sm bg-cyan-800">
+
                     Get Started
                 </button>
             </div>
