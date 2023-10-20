@@ -9,12 +9,18 @@ export default function Home() {
             className={`flex min-h-screen flex-col items-center justify-between`}
         >
             <div className="bg-primary h-[550px] w-full flex justify-center content-center flex-wrap flex-col">
+
                 <h1 className="text-white text-7xl">
                     EduGrader - Replace background with image
                 </h1>
                 <button className="text-white rounded-sm bg-cyan-800">
+
                     Get Started
                 </button>
+            </div>
+            <div className="w-[600px] flex flex-col flex-wrap justify-center items-center space-y-10 text-center">
+                <h1 className="text-5xl">A simple and intuitive way to grade</h1>
+                <h2 className="text-lg">EduGrader takes all the features you need and packs them in an intuitive and easy-to-use environment.</h2>
             </div>
         </main>
     );
