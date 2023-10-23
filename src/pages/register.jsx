@@ -1,10 +1,14 @@
 import Image from "next/image";
 import background from "../assets/OIP.png";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 
 export default function Register() {
     const { data, status } = useSession();
+    const router = useRouter();
+
 
     if (status === "loading") {
         //checking status on server
@@ -13,21 +17,25 @@ export default function Register() {
     }
     if (status === "authenticated") {
         //user is logged in
-        return (
-            //redirect to homepage or something
-            <div className="pt-16">
-                <h1>{data.user.name}</h1>
-                <Image
-                    src={data.user.image}
-                    alt={data.user.name + " photo"}
-                    width="50"
-                    height="50"
-                />
-                <button onClick={signOut}>sign out</button>
-            </div>
-        );
+        router.push("/dashboard");
+        // return (
+        //     //redirect to homepage or something
+
+        //     <div className="flex flex-col flex-wrap content-center justify-center h-full">
+        //         <h1 className="p-2 text-center">{data.user.name}</h1>
+        //         <Image
+        //             src={data.user.image}
+        //             alt={data.user.name + " Photo"}
+        //             width={200}
+        //             height={200}
+        //             className="mx-auto my-8"
+        //         />
+        //         <button className="px-8 text-lg bg-red-500 border-2 border-black rounded-lg" onClick={signOut}>Sign Out</button>
+        //     </div>
+        // );
     }
-    //user is not logged in
+
+    // User is not logged in
     return (
         <main className="flex flex-col flex-wrap content-center justify-center flex-1 min-h-full">
             <Image
@@ -93,7 +101,7 @@ export default function Register() {
                     </div>
 
                     <button
-                        className="mt-3 bg-white self-center px-4 py-2 border flex gap-2 border-slate-200 rounded-lg text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150"
+                        className="flex self-center gap-2 px-4 py-2 mt-3 transition duration-150 bg-white border rounded-lg border-slate-200 text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow"
                         onClick={() => signIn("google")}
                     >
                         <Image
