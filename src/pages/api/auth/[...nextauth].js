@@ -9,7 +9,7 @@ export const authOptions = {
         }),
     ],
     session: {
-        strategy: 'jwt',
+        strategy: "jwt",
     },
 };
 export default NextAuth(authOptions);
