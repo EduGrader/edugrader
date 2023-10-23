@@ -9,7 +9,6 @@ export default function Register() {
     const { data, status } = useSession();
     const router = useRouter();
 
-
     if (status === "loading") {
         //checking status on server
         //maybe make custom component for this

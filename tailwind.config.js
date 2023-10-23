@@ -17,6 +17,9 @@ module.exports = {
                 secondary: "#BECDF9",
                 accent: "#0059FF",
             },
+            height: {
+                navbar: "calc(100vh - 4rem)",
+            },
         },
     },
     plugins: [],
