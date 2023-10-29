@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BsBarChart, BsPercent } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
-import backgroundImage from "./school_classroom.jpg";
+import backgroundImage from "@/assets/school_classroom.jpg";
 // Main color: bg-sky-400
 // Secondary color:z
 
