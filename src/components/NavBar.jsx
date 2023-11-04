@@ -1,7 +1,76 @@
+import Image from "next/image";
+
+import { useState } from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
+
+export function Profile() {
+    const { data, status } = useSession();
+    const [profileOpen, setProfileOpen] = useState(false);
+
+    console.log(data);
+
+    function toggleProfile() {
+        setProfileOpen(!profileOpen);
+    }
+
+    if (status == "unauthenticated") {
+        return (
+            <button
+                className="flex self-end gap-2 px-2 py-1 mx-3 transition duration-150 bg-white border rounded-lg border-slate-200 text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow"
+                onClick={() => signIn("google")}
+            >
+                <Image
+                    width="25"
+                    height="25"
+                    src="https://www.svgrepo.com/show/475656/google-color.svg"
+                    alt="google logo"
+                />
+                <span>Sign In</span>
+            </button>
+        );
+    } else if (status == "authenticated") {
+        return (
+            <div className="ml-3 mx-3 px-2 self-end flex items-center">
+                <span className="mx-3 text-white font-semibold text-lg">
+                    {data.user.name}
+                </span>
+                <button
+                    type="button"
+                    onClick={toggleProfile}
+                    className="rounded-full bg-gray-800 text-sm hover:ring-4 hover:ring-white transition duration-75"
+                >
+                    <Image
+                        height="8"
+                        width="8"
+                        className="h-8 w-8 rounded-full"
+                        src={data.user.image}
+                        alt=""
+                        unoptimized
+                    />
+                </button>
+
+                {profileOpen && (
+                    <div className="absolute right-0 z-10 mt-[100px] mx-2 w-48 origin-top-right rounded-md bg-white py-1">
+                        <a
+                            href="#"
+                            className="block px-4 py-2 text-base text-textcolor"
+                            onClick={signOut}
+                        >
+                            Sign out
+                        </a>
+                    </div>
+                )}
+            </div>
+        );
+    }
+}
+
 export default function NavBar() {
     return (
-        <div className="relative h-16">
-            <div className="fixed z-50 w-full h-16 mb-16 bg-accent"></div>
+        <div className="fixed h-16">
+            <div className="fixed z-50 w-full h-16 mb-16 bg-accent flex flex-col justify-center">
+                <Profile />
+            </div>
         </div>
     );
 }

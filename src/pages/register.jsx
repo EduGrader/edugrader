@@ -42,6 +42,7 @@ export default function Register() {
                 src={background}
                 alt="heheh"
                 fill
+                unoptimized
             />
 
             <div className="flex flex-col justify-center mt-5 bg-slate-100 min-w-[400px] min-h-[500px] self-center rounded-lg bg-opacity-75">
