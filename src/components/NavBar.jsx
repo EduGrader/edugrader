@@ -30,20 +30,20 @@ export function Profile() {
         );
     } else if (status == "authenticated") {
         return (
-            <div className="ml-3 mx-3 px-2 self-end flex items-center">
-                <span className="mx-3 text-white font-semibold text-lg">
+            <div className="flex items-center self-end px-2 mx-3 ml-3">
+                <span className="mx-3 text-lg font-semibold text-white">
                     {data.user.name}
                 </span>
                 <button
                     type="button"
                     onClick={toggleProfile}
-                    className="rounded-full bg-gray-800 text-sm hover:ring-4 hover:ring-white transition duration-75"
+                    className="text-sm transition duration-75 bg-gray-800 rounded-full hover:ring-4 hover:ring-white"
                 >
                     <Image
                         height="8"
                         width="8"
-                        className="h-8 w-8 rounded-full"
-                        src={data.user.image}
+                        className="w-8 h-8 rounded-full"
+                        src={data.user ? data.user.image : ""}
                         alt=""
                         unoptimized
                     />
@@ -68,7 +68,7 @@ export function Profile() {
 export default function NavBar() {
     return (
         <div className="fixed h-16">
-            <div className="fixed z-50 w-full h-16 mb-16 bg-accent flex flex-col justify-center">
+            <div className="fixed z-50 flex flex-col justify-center w-full h-16 mb-16 bg-accent">
                 <Profile />
             </div>
         </div>
