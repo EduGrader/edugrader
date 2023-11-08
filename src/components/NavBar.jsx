@@ -7,8 +7,6 @@ export function Profile() {
     const { data, status } = useSession();
     const [profileOpen, setProfileOpen] = useState(false);
 
-    console.log(data);
-
     function toggleProfile() {
         setProfileOpen(!profileOpen);
     }
