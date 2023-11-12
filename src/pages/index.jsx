@@ -22,12 +22,12 @@ export default function Home() {
         <main
             className={`flex min-h-screen flex-col items-center justify-between`}
         >
-            <div className="bg-primary h-[550px] w-full flex justify-center content-center flex-wrap flex-col"
+            <div className="bg-primary h-[550px] w-full flex justify-center content-center flex-wrap flex-col items-center"
             style={{ backgroundImage: `url(${backgroundImage})` }}>
-                <h1 className="text-white text-7xl">
+                <h1 className="p-10 text-white text-7xl">
                     EduGrader - Replace background with image
                 </h1>
-                <button className="text-white rounded-lg bg-accent">
+                <button className="px-5 py-4 text-4xl text-white rounded-lg w-96 bg-accent hover:">
                     Get Started
                 </button>
             </div>
